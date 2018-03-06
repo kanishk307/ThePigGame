@@ -1,5 +1,7 @@
 var scores, activePlayer, roundScore , dice;
 
+var scoreLimit = prompt("Please enter the maximum score", 100);
+
 scores=[0,0];
 activePlayer=0;
 roundScore=0;
@@ -48,7 +50,7 @@ document.querySelector('.btn-hold').addEventListener('click',function(){
     //Display UI
     document.querySelector('#score-'+activePlayer).textContent = scores[activePlayer];
     
-    if(scores[activePlayer] >= 100) {
+    if(scores[activePlayer] >= scoreLimit) {
     
      document.querySelector('#player-'+activePlayer).textContent = 'Winner!';
     document.querySelector('.dice').style.display='none';
