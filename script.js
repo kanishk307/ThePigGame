@@ -1,10 +1,10 @@
 var scores, activePlayer, roundScore , dice;
 
-var scoreLimit = prompt("Please enter the maximum score", 100);
-
 scores=[0,0];
 activePlayer=0;
 roundScore=0;
+
+var scoreLimit = prompt("Please enter the maximum score", 100);
 
 var dice=Math.floor(Math.random() * 6) + 1 ;
 console.log(dice);
@@ -50,12 +50,15 @@ document.querySelector('.btn-hold').addEventListener('click',function(){
     //Display UI
     document.querySelector('#score-'+activePlayer).textContent = scores[activePlayer];
     
+    
     if(scores[activePlayer] >= scoreLimit) {
     
      document.querySelector('#player-'+activePlayer).textContent = 'Winner!';
+        
     document.querySelector('.dice').style.display='none';
     document.querySelector('.btn-roll').style.display='none';
     document.querySelector('.btn-hold').style.display='none';
+  //  document.querySelector('player-'+activePlayer+'-panel-win').style.transition = "all 2s";
     
     document.querySelector('.player-0-panel').classList.remove('active');
     document.querySelector('.player-1-panel').classList.remove('active');
@@ -101,9 +104,10 @@ document.querySelector('.player-0-panel').classList.add('active');
 document.querySelector('.player-1-panel').classList.remove('active');
     
 //Bringing back buttons and dice
-    document.querySelector('.dice').style.display='block';
+    //document.querySelector('.dice').style.display='block';
     document.querySelector('.btn-roll').style.display='block';
     document.querySelector('.btn-hold').style.display='block';
+    scoreLimit = prompt("Please enter the maximum score", 100);
     
     
 });
